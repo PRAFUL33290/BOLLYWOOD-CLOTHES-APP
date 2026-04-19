@@ -3,9 +3,9 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { Image } from 'expo-image';
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default function ProductCard({ title, price, imageUrl }) {
+export default function ProductCard({ title, price, imageUrl, cardStyle }) {
   return (
-    <View className="flex-col bg-surface-container-low pb-6 w-full max-w-sm mb-8">
+    <View style={cardStyle} className="flex-col bg-surface-container-low pb-6 mb-8">
       <View className="relative w-full aspect-[3/4] bg-surface-container-lowest overflow-hidden mb-6">
         <Image
           source={{ uri: imageUrl }}

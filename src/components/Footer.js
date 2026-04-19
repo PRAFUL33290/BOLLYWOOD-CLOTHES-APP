@@ -1,34 +1,91 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import useBreakpoint from '../hooks/useBreakpoint';
 
 export default function Footer() {
   const navigation = useNavigation();
+  const { isMobile } = useBreakpoint();
+
+  const links = [
+    { label: 'Collections', screen: 'Collections' },
+    { label: 'Notre Histoire', screen: 'Story' },
+    { label: 'Expédition & Retours', screen: null },
+    { label: 'Politique de confidentialité', screen: null },
+  ];
 
   return (
-    <View className="w-full border-t border-stone-200/20 bg-[#faf9f8] flex-col justify-between items-center py-12 px-10 gap-8 mt-auto">
-      <Text className="font-headline italic text-lg text-[#9e0000]">
-        THE REGAL CURATOR
-      </Text>
+    <View style={[styles.wrapper, isMobile ? styles.wrapperMobile : styles.wrapperDesktop]}>
+      <Text style={styles.brand}>THE REGAL CURATOR</Text>
 
-      <View className="flex-row flex-wrap justify-center gap-4">
-        <TouchableOpacity onPress={() => navigation.navigate('Collections')}>
-          <Text className="font-label text-sm tracking-wide text-stone-500 underline decoration-stone-500">Collections</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Story')}>
-          <Text className="font-label text-sm tracking-wide text-stone-500 underline decoration-stone-500">Our Story</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text className="font-label text-sm tracking-wide text-stone-500 underline decoration-stone-500">Shipping & Returns</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text className="font-label text-sm tracking-wide text-stone-500 underline decoration-stone-500">Privacy Policy</Text>
-        </TouchableOpacity>
+      <View style={[styles.linksRow, !isMobile && styles.linksRowDesktop]}>
+        {links.map((link) => (
+          <TouchableOpacity
+            key={link.label}
+            onPress={() => link.screen && navigation.navigate(link.screen)}
+          >
+            <Text style={styles.link}>{link.label}</Text>
+          </TouchableOpacity>
+        ))}
       </View>
 
-      <Text className="font-label text-xs tracking-wide text-stone-500 text-center">
-        © 2024 THE REGAL CURATOR. ALL RIGHTS RESERVED.
-      </Text>
+      <Text style={styles.copy}>© 2024 THE REGAL CURATOR. TOUS DROITS RÉSERVÉS.</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  wrapper: {
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(230,225,220,0.5)',
+    backgroundColor: '#faf9f8',
+    marginTop: 'auto',
+  },
+  wrapperMobile: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    paddingVertical: 40,
+    paddingHorizontal: 24,
+    gap: 20,
+  },
+  wrapperDesktop: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 28,
+    paddingHorizontal: 48,
+    flexWrap: 'wrap',
+    gap: 16,
+  },
+  brand: {
+    fontFamily: 'NotoSerif_400Regular_Italic',
+    fontSize: 16,
+    color: '#9e0000',
+    letterSpacing: 2,
+  },
+  linksRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: 16,
+  },
+  linksRowDesktop: {
+    justifyContent: 'flex-start',
+    gap: 24,
+  },
+  link: {
+    fontFamily: 'Manrope_400Regular',
+    fontSize: 12,
+    letterSpacing: 1,
+    color: '#78716c',
+    textDecorationLine: 'underline',
+    textDecorationColor: '#78716c',
+  },
+  copy: {
+    fontFamily: 'Manrope_400Regular',
+    fontSize: 11,
+    letterSpacing: 1,
+    color: '#78716c',
+    textAlign: 'center',
+  },
+});
