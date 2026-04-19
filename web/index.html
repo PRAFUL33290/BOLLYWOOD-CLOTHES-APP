@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE REGAL CURATOR — Haute Couture Indienne</title>
+  <meta name="description" content="Découvrez l'art de la haute couture indienne, à la croisée du patrimoine artisanal et du luxe contemporain." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header id="site-header">
+  <div class="container">
+    <button class="hamburger" id="hamburger-btn" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <span class="header-brand" data-page="home">THE REGAL CURATOR</span>
+
+    <nav class="header-nav">
+      <a href="#" data-page="collections">Collections</a>
+      <a href="#" data-page="story">Notre Histoire</a>
+      <a href="#" data-page="contact">Contact</a>
+      <a href="#" data-page="dashboard">Tableau de Bord</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="cart-open-btn" aria-label="Panier">
+        <span class="material-icons" style="font-size:28px">shopping_bag</span>
+        <span class="cart-badge hidden" id="cart-count">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════ MOBILE DRAWER ══════════════ -->
+<div class="drawer-backdrop" id="drawer-backdrop"></div>
+<aside class="drawer" id="mobile-drawer" aria-label="Menu mobile">
+  <div class="drawer-header">
+    <span class="drawer-brand">THE REGAL CURATOR</span>
+    <button class="drawer-close" id="drawer-close-btn" aria-label="Fermer le menu">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+  <nav class="drawer-links">
+    <div class="drawer-link home" data-page="home">
+      <span style="display:flex;align-items:center;gap:10px">
+        <span class="material-icons" style="font-size:18px">home</span>Accueil
+      </span>
+      <span class="material-icons" style="font-size:18px;opacity:0.4">chevron_right</span>
+    </div>
+    <div class="drawer-link" data-page="collections">
+      Collections
+      <span class="material-icons" style="font-size:18px;opacity:0.4">chevron_right</span>
+    </div>
+    <div class="drawer-link" data-page="story">
+      Notre Histoire
+      <span class="material-icons" style="font-size:18px;opacity:0.4">chevron_right</span>
+    </div>
+    <div class="drawer-link" data-page="contact">
+      Contact
+      <span class="material-icons" style="font-size:18px;opacity:0.4">chevron_right</span>
+    </div>
+    <div class="drawer-link" data-page="dashboard">
+      Tableau de Bord
+      <span class="material-icons" style="font-size:18px;opacity:0.4">chevron_right</span>
+    </div>
+  </nav>
+  <div class="drawer-footer">© 2024 THE REGAL CURATOR</div>
+</aside>
+
+<!-- ══════════════ CART SIDEBAR ══════════════ -->
+<div class="cart-overlay" id="cart-overlay">
+  <div class="cart-overlay-bg" id="cart-overlay-bg"></div>
+  <aside class="cart-sidebar">
+    <div class="cart-header">
+      <h2 class="serif">Mon Panier</h2>
+      <button class="icon-btn" id="cart-close-btn" aria-label="Fermer le panier">
+        <span class="material-icons">close</span>
+      </button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <p class="cart-empty" id="cart-empty">Votre panier est vide.</p>
+    </div>
+    <div class="cart-footer" id="cart-footer" style="display:none">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cart-total-amount">₹ 0</span>
+      </div>
+      <button class="btn-checkout" onclick="showToast('Paiement sécurisé en cours…')">
+        Passer la Commande
+      </button>
+    </div>
+  </aside>
+</div>
+
+<!-- ══════════════ MAIN CONTENT ══════════════ -->
+<main>
+
+  <!-- ═══════ PAGE : HOME ═══════ -->
+  <section id="page-home" class="page active">
+
+    <!-- Héros -->
+    <div class="hero">
+      <img class="hero-img"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6L3WRWq7_-BirqD39LqOg5F0c7JaBCaB2NrABKYcU-y9Qu5SwUnaw8Dvp1OHj8R0WAQrJ-q4i0tJS-zlkbXWefHx_bkeZdgWh1ApeHoWF54kaDrZosHs40iV13t0cV_nmmpB-bK3W7irwMSPRZwKlOvty-G5xjmiktf_ihPUSdCmzzH4WX7ufRNlnaTWdI8zH-CvK950RwEtt2iAJlrDw6_5nL1SLezMvUtYL6i-glqyM7j9rrXa5dzgTKqLRCX1vdkzk67SA6h6H"
+        alt="Bannière élégance indienne" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title serif">Élégance Indienne Exquise</h1>
+        <p class="hero-subtitle">
+          Découvrez l'art de la haute couture indienne, à la croisée du patrimoine artisanal et du luxe contemporain.
+        </p>
+        <button class="btn-primary" data-page="collections">Explorer la Collection</button>
+      </div>
+    </div>
+
+    <!-- Catégories -->
+    <section class="categories-section">
+      <h2 class="section-title serif">Catégories Phares</h2>
+      <div class="section-divider"></div>
+      <div class="categories-grid">
+        <div class="cat-card" data-page="collections">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSJ7SXyKf2CHUDGYpIxvTb6LpHhx2RPAuqoCuHrLOUNcAZvR76e9GQqyMDl7C1tIdwCYaJffVMY4W_HG5dwbNB6Iok15HgWS2-35iOrOCDELgjflUOxhfm1y9FSNMeKzihuUHf02QWjARD6zK3i1S2QPsqijVlK1-hcRrDdiYUVvLs4V8j0XuRs0pSR30EDajZ6RnlXk-dWFuG_HV7AScj6uEsmsj5SzNBrrQ9EjIbA6u0OiFqJOuBeI24ogdaZMV0zkTcUwfd-JN-"
+            alt="Collection Femmes" />
+          <div class="cat-overlay"></div>
+          <div class="cat-label">
+            <p class="cat-label-title serif">Femmes</p>
+            <p class="cat-label-cta">Découvrir →</p>
+          </div>
+        </div>
+        <div class="cat-card" data-page="collections">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcjgdcbQo_jifm1zlYHirZGFeivsooNnwIJ8tYeF1n6KOPyAb3L16L1E94q_ch8-SX8MSOftA4EIFHM9LeO0v8w_KKu7RCdS_u6sb2lNqj_wU1HVKeI_w0Efqfvi3XlRPb_aZYu8zT9aKsRXFDRYRnBi4fVixp_WhoHP9MBc7Wyp6VzbPNXhVgqpjUStm4yrYcNAJi-HHjz_iTj8J44lQawtRbHbMru4gjsyY7M7Uq-Ky1HOLjWRkQLOjLZzzm4f1I1WRMcgSi1zlf"
+            alt="Collection Hommes" />
+          <div class="cat-overlay"></div>
+          <div class="cat-label">
+            <p class="cat-label-title serif">Hommes</p>
+            <p class="cat-label-cta">Découvrir →</p>
+          </div>
+        </div>
+        <div class="cat-card" data-page="collections">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBia9ILcRIefzR-LNcY863kQZRBmacciXx3xh2He2xcGJk6t635bBS7i65Z5V4WhJiqUDI9XuYjUpWxEesjKNg10FiHHqn3g9FLOi78HkhpImfxa_7e1mEwD8Z88ZauzqdjfPUU18D3WDczkQnqo1uFuiA8ms8dwYUTPA0DKK5bfmSSlArq74EgeDVAQe_FTgLBztB-JB8Wk5TR8_9yz-HBmkIOrMPTfxrlDrpCB87FhxP439LmcyCaACQrShdCtZl7dEA9PVP-7i2S"
+            alt="Collection Enfants" />
+          <div class="cat-overlay"></div>
+          <div class="cat-label">
+            <p class="cat-label-title serif">Enfants</p>
+            <p class="cat-label-cta">Découvrir →</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produits vedettes -->
+    <section class="products-section">
+      <h2 class="section-title serif">Chefs-d'Œuvre Sélectionnés</h2>
+      <div class="section-divider"></div>
+      <div class="products-grid" id="home-products-grid">
+        <!-- Injected by JS -->
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+      <span class="material-icons newsletter-icon">mark_email_read</span>
+      <h2 class="newsletter-title serif">Rejoignez le Cercle Privé</h2>
+      <p class="newsletter-desc">
+        Abonnez-vous pour un accès exclusif aux nouvelles collections, aux ventes privées et aux conseils de nos curateurs.
+      </p>
+      <form class="newsletter-form" id="newsletter-form" novalidate>
+        <input type="email" placeholder="Votre adresse e-mail" aria-label="Adresse e-mail" required />
+        <button type="submit">S'abonner</button>
+      </form>
+    </section>
+  </section>
+  <!-- END page-home -->
+
+
+  <!-- ═══════ PAGE : COLLECTIONS ═══════ -->
+  <section id="page-collections" class="page">
+    <div class="collections-header">
+      <h1 class="serif">La Sélection Festive</h1>
+      <p>Découvrez notre sélection de haute couture indienne. Chaque pièce est le témoignage d'un savoir-faire ancestral.</p>
+    </div>
+
+    <div class="filter-bar">
+      <span class="filter-count">Affichage 1–7 sur 7 articles</span>
+      <div class="filter-tabs" role="group" aria-label="Filtres catégorie">
+        <button class="filter-tab active" data-filter="all">Tout</button>
+        <button class="filter-tab" data-filter="femmes">Femmes</button>
+        <button class="filter-tab" data-filter="hommes">Hommes</button>
+        <button class="filter-tab" data-filter="bijoux">Bijoux</button>
+      </div>
+    </div>
+
+    <div class="collections-grid-wrap">
+      <!-- Produit vedette -->
+      <div class="featured-product" data-category="femmes">
+        <div class="featured-product-img">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQOub3c2ppilj3V5HuJdbT1pbydqTMrn830RZcJaN_nefPZdf_mw18YSj03Nz6lp6MvnwNxF-BQ4p7EK-dY7QMTb8ykXdYtAVf8LoxMPYxTnD5tja_aeHoDEZ0TrK-q0f92h9j5zW7tWV4xI9yZWjhg8ypb8mxDTPWtFRE3CI7AvPLQ3N4CazCznBzlxp3yJf5O4IONKoKSiiHgzqVXbMb4t6ZXgl6gbnGDbRTurjFu1ZvL_feOistPZmW8vH63eDK_9gQG2FaYoiL"
+            alt="Lehenga Rouge Héritage" />
+        </div>
+        <div class="featured-product-body">
+          <p class="featured-sub">Collection Couture</p>
+          <h2 class="featured-title serif">Le Lehenga Rouge Héritage</h2>
+          <p class="featured-desc">
+            Brodé à la main par des artisans de Rajasthan, ce lehenga incarne des siècles de tradition royale.
+          </p>
+          <p class="featured-price serif">₹1,45,000</p>
+          <button class="btn-secondary"
+            onclick="addToCart('Le Lehenga Rouge Héritage','₹1,45,000',145000,'https://lh3.googleusercontent.com/aida-public/AB6AXuAQOub3c2ppilj3V5HuJdbT1pbydqTMrn830RZcJaN_nefPZdf_mw18YSj03Nz6lp6MvnwNxF-BQ4p7EK-dY7QMTb8ykXdYtAVf8LoxMPYxTnD5tja_aeHoDEZ0TrK-q0f92h9j5zW7tWV4xI9yZWjhg8ypb8mxDTPWtFRE3CI7AvPLQ3N4CazCznBzlxp3yJf5O4IONKoKSiiHgzqVXbMb4t6ZXgl6gbnGDbRTurjFu1ZvL_feOistPZmW8vH63eDK_9gQG2FaYoiL')">
+            Ajouter au Panier
+          </button>
+        </div>
+      </div>
+
+      <!-- Grille produits -->
+      <div class="products-grid" id="collections-grid">
+        <!-- Injected by JS -->
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" id="pagination">
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">4</button>
+      </div>
+    </div>
+  </section>
+  <!-- END page-collections -->
+
+
+  <!-- ═══════ PAGE : NOTRE HISTOIRE ═══════ -->
+  <section id="page-story" class="page">
+    <!-- Héros -->
+    <div class="story-hero">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbaM2J0BaTjzFphtyXZR0sObBiqnI0lFFeO_ypO3pmL05llc2NvVyEhaL9lAtZtkmhNjlHLpyWwgArLT8Pb7NsTfQErvbIFHW8Jcn3WoY_vLSp3o43yaJ0o2kZ76sVu7z5dVGs_3TSrza68qRgeTQuSbbRf_2hhuiD_6OqwZn8o7ADtIf_8-kRRBHp8TiHh8geNAYgZA9hMKCAGCq1B0bDI_pIxt7uoPPZUJBSPKIWzExHNL_cx2YIYckmZm91IQw1cA8my-rDC6W6"
+        alt="Notre héritage" />
+      <div class="story-hero-overlay"></div>
+      <div class="story-hero-content">
+        <p class="story-hero-subtitle">Notre Héritage</p>
+        <h1 class="story-hero-title serif">
+          Le Tissu de<br><em>la Royauté</em>
+        </h1>
+        <div class="story-divider"></div>
+      </div>
+    </div>
+
+    <!-- Récit -->
+    <div class="story-narrative">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBwT--9bo0sMokZ8Sga37N1srMjDG_8cblP8HKp9JR4k2vbN5FkzzJHk_gQ3ZDQPHKfmiYDF-t8jHai5YhjCmWKlXsZVFyy2o_aXXYjiVmHDfWEKyO5Cmnw_xbk-VeLhRyI3j92Ny5fBG09CW24DC0sUICKMlF7jOu-Mp_un4r5QRsQiZhdH7pbfQn9AziEPSbSkvAJ9mb4_xtCuSDRAubHD1uM1ljHKdDfoDvd-UZZyEEnT4xWD32J3"
+        alt="Artisans au travail" />
+      <div class="story-narrative-text">
+        <h2 class="story-narrative-title serif">Un Héritage Préservé dans le Fil</h2>
+        <p>Depuis des générations, les artisans d'Inde ont tissé des récits de grandeur et de culture dans chaque métier à tisser. THE REGAL CURATOR est née du désir de préserver ces traditions.</p>
+        <p>Nous voyageons au cœur du Rajasthan, aux métiers à tisser de Varanasi et dans les ateliers cachés de Lucknow.</p>
+        <p class="highlight">Chaque pli est un siècle de savoir-faire ; chaque motif, une bénédiction.</p>
+      </div>
+    </div>
+
+    <!-- Piliers d'excellence -->
+    <div class="story-pillars">
+      <h2 class="serif">Nos Piliers d'Excellence</h2>
+      <p class="story-pillars-subtitle">Les principes qui guident notre curation.</p>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <span class="material-icons pillar-icon">verified</span>
+          <h3 class="pillar-title serif">Authenticité</h3>
+          <p class="pillar-desc">Nous approvisionnons directement auprès des familles de tisserands de générations.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="material-icons pillar-icon">diamond</span>
+          <h3 class="pillar-title serif">Qualité</h3>
+          <p class="pillar-desc">Du poids de la soie à la précision du zari, rien n'est laissé au hasard.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="material-icons pillar-icon">history_edu</span>
+          <h3 class="pillar-title serif">Tradition</h3>
+          <p class="pillar-desc">Nous préservons les techniques ancestrales de la mode indienne.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END page-story -->
+
+
+  <!-- ═══════ PAGE : CONTACT ═══════ -->
+  <section id="page-contact" class="page">
+    <div class="contact-section">
+      <div class="contact-grid">
+        <!-- Image + Atelier -->
+        <div>
+          <div class="contact-img-wrap">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrJX3xL1WRj1nnnfBDfbqqAUUWsz76DgZVtklp5vAe4gWTaSpSDyX2rFhel9URJYf_5DLTsRBAOAnuXIEvjn4O6ImG9UjNMY90aNAE3g7vR-V1tUkW5J9OfRNoTxy1Nv-FZ-ihnmtYGVSemUwIZJVI9gJwPcdIgEjt989Q8C7fYFPbKaJadJ49TKaJ8mlRbASuyB3boi3p4S0QwMKeoboqkixlHeGk_dk7sx_uGbZAeOhnuB_lXxz_rzln8iJFNG3hAV2uPlDHmmhc"
+              alt="Notre atelier" />
+            <span class="contact-img-label serif">Nous Contacter</span>
+          </div>
+          <div class="atelier-box">
+            <h2 class="atelier-title serif">Notre Atelier</h2>
+            <div class="atelier-addr">
+              <p>124 Heritage Avenue</p>
+              <p>Couture District</p>
+              <p>New Delhi, 110001</p>
+              <p class="appt">Sur rendez-vous uniquement</p>
+            </div>
+            <button class="btn-whatsapp" onclick="showToast('Ouverture de WhatsApp…')">
+              <span class="material-icons">chat</span>
+              Chat sur WhatsApp
+            </button>
+          </div>
+        </div>
+
+        <!-- Formulaire de contact -->
+        <div class="contact-form">
+          <h2 class="serif">Envoyer un Message</h2>
+          <p class="contact-form-desc">
+            Pour des demandes sur mesure, des consultations nuptiales ou des questions générales, écrivez-nous ci-dessous.
+          </p>
+          <form id="contact-form" novalidate>
+            <div class="form-field">
+              <label class="form-label" for="contact-name">Nom</label>
+              <input class="form-input" id="contact-name" type="text" placeholder="Jane Doe" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="contact-email">Adresse E-mail</label>
+              <input class="form-input" id="contact-email" type="email" placeholder="jane@example.com" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="contact-msg">Message</label>
+              <textarea class="form-textarea" id="contact-msg" placeholder="Comment pouvons-nous vous aider ?" required></textarea>
+            </div>
+            <button class="btn-submit" type="submit">
+              Envoyer le Message
+              <span class="material-icons">arrow_forward</span>
+            </button>
+            <p class="form-success" id="contact-success">
+              ✓ Votre message a bien été envoyé. Nous vous répondrons sous 24 h.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END page-contact -->
+
+
+  <!-- ═══════ PAGE : TABLEAU DE BORD ═══════ -->
+  <section id="page-dashboard" class="page">
+    <div class="dashboard-section">
+      <div class="dashboard-header">
+        <h1 class="serif">Commandes Récentes</h1>
+        <p>Suivez et gérez vos sélections curatoriales.</p>
+      </div>
+
+      <!-- Commande 1 -->
+      <div class="order-card">
+        <div class="order-card-top">
+          <div class="order-card-img">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdfPF5ZhPrXf-_QrtZK0oF5Zpk79OaOWj2IiKIXdgwwUJu9McLJVFG1XbBObKZ1o7p5CYNGQ87VASGKJ7ibVa33zQC4TFrVKQbmyJu50T6eI6sXdG55CMjQUWni8aH5pUCrUsVWc-f-7aRLme4z5xToHTIiz-OXGtkRw5qqog8f6r-uMFmEGEIxNSkymT5PoaXZJfR6V5wlSEHDrtP0zlqvliXObjEsJB9RZiWfvgYdFnVZv67-FQ9iPGTRjfwViKjMGV_OmDrwXyP"
+              alt="Commande RC-8492" />
+          </div>
+          <div>
+            <p class="order-num">Commande #RC-8492</p>
+            <p class="order-name serif">Collection Sherwani en Soie Écarlate</p>
+            <p class="order-date">Passée le 24 oct. 2023</p>
+            <span class="order-status">Expédiée</span>
+          </div>
+        </div>
+        <div class="order-card-footer">
+          <span class="order-total">₹ 85 000</span>
+          <button class="btn-order-detail" onclick="toggleOrderDetail('detail-1')">Voir les détails</button>
+        </div>
+      </div>
+
+      <!-- Détail commande 1 -->
+      <div class="order-detail-box" id="detail-1">
+        <p class="order-detail-tag">Détails de la Commande</p>
+        <h2 class="order-detail-title serif">Commande #RC-8492</h2>
+        <p class="order-detail-date">Passée le 24 octobre 2023</p>
+
+        <p class="order-items-title serif">Articles</p>
+        <div class="order-item-row">
+          <div class="order-item-img">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvRKn5hcYRtWRVKETlzgixY7FQ1wV11VvswU0s9YjLzPmsjnFszjtC2kxF5Xe-ej-H-hhzRr_Tq2xxn5SyditRovsMEydG8cLOEue86eKa80ug4q3FG6Bm2-diwOsTPLiWChEeSP3XVPHYyKbhUaGII4CSMVRHuVRwEnlEh0oz_fIRx2fJ-76tYRsvgIQPiflNt41ds9XrPfHIVtizsx82DOM08HZMhjw35zuZ_zsjb9QKGmDFPwKvpBftbuUKoBTX-DVSb96BSQSK"
+              alt="Sherwani Écarlate" />
+          </div>
+          <div>
+            <p class="order-item-name">Sherwani en Soie Écarlate — Haut</p>
+            <p class="order-item-meta">Taille : L | Qté : 1</p>
+            <p class="order-item-price">₹ 65 000</p>
+          </div>
+        </div>
+
+        <div class="order-summary">
+          <p class="order-summary-title serif">Récapitulatif</p>
+          <div class="summary-row"><span>Sous-total</span><span>₹ 85 000</span></div>
+          <div class="summary-row"><span>Livraison</span><span>Offerte</span></div>
+          <div class="summary-divider"></div>
+          <div class="summary-total"><span>Total</span><span>₹ 85 000</span></div>
+        </div>
+      </div>
+
+      <!-- Commande 2 -->
+      <div class="order-card">
+        <div class="order-card-top">
+          <div class="order-card-img">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxl2oHEpQs2gKGVXF9CiUSdt2sPsbKZmJAvdMQRTl14cRafq0BfTQl-lCQ3olcxvvoqeaDcgbHKUFXsY_sriugqkDYzR1OXMs65yoHQpOKpmhtHYFt6xikx34mlNuqepeE_h1_94mDGkiElu6beAOG-6yLMBI4id2nD14Jza6OjL4q9eSwbWl8ppp7zQTQDwsWC33hicYEmVSH_IoBd9pqOdCAizW-QEM8Y9ex9FhXIw5-_BktTgPK-yzIY7qMRywVlR00nAXgXoVw"
+              alt="Commande RC-7301" />
+          </div>
+          <div>
+            <p class="order-num">Commande #RC-7301</p>
+            <p class="order-name serif">Sari en Soie Safran</p>
+            <p class="order-date">Passée le 3 sept. 2023</p>
+            <span class="order-status" style="background:rgba(0,100,0,0.08);color:#006400;border-color:rgba(0,100,0,0.2)">Livrée</span>
+          </div>
+        </div>
+        <div class="order-card-footer">
+          <span class="order-total">₹ 45 000</span>
+          <button class="btn-order-detail" onclick="toggleOrderDetail('detail-2')">Voir les détails</button>
+        </div>
+      </div>
+
+      <!-- Détail commande 2 -->
+      <div class="order-detail-box" id="detail-2">
+        <p class="order-detail-tag">Détails de la Commande</p>
+        <h2 class="order-detail-title serif">Commande #RC-7301</h2>
+        <p class="order-detail-date">Passée le 3 septembre 2023</p>
+
+        <p class="order-items-title serif">Articles</p>
+        <div class="order-item-row">
+          <div class="order-item-img">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxl2oHEpQs2gKGVXF9CiUSdt2sPsbKZmJAvdMQRTl14cRafq0BfTQl-lCQ3olcxvvoqeaDcgbHKUFXsY_sriugqkDYzR1OXMs65yoHQpOKpmhtHYFt6xikx34mlNuqepeE_h1_94mDGkiElu6beAOG-6yLMBI4id2nD14Jza6OjL4q9eSwbWl8ppp7zQTQDwsWC33hicYEmVSH_IoBd9pqOdCAizW-QEM8Y9ex9FhXIw5-_BktTgPK-yzIY7qMRywVlR00nAXgXoVw"
+              alt="Sari Safran" />
+          </div>
+          <div>
+            <p class="order-item-name">Sari en Soie Safran</p>
+            <p class="order-item-meta">Taille : M | Qté : 1</p>
+            <p class="order-item-price">₹ 45 000</p>
+          </div>
+        </div>
+
+        <div class="order-summary">
+          <p class="order-summary-title serif">Récapitulatif</p>
+          <div class="summary-row"><span>Sous-total</span><span>₹ 45 000</span></div>
+          <div class="summary-row"><span>Livraison</span><span>Offerte</span></div>
+          <div class="summary-divider"></div>
+          <div class="summary-total"><span>Total</span><span>₹ 45 000</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- END page-dashboard -->
+
+</main>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer id="site-footer">
+  <span class="footer-brand">THE REGAL CURATOR</span>
+  <div class="footer-links">
+    <a href="#" data-page="collections">Collections</a>
+    <a href="#" data-page="story">Notre Histoire</a>
+    <a href="#">Expédition &amp; Retours</a>
+    <a href="#">Politique de confidentialité</a>
+  </div>
+  <span class="footer-copy">© 2024 THE REGAL CURATOR. TOUS DROITS RÉSERVÉS.</span>
+</footer>
+
+<!-- ══════════════ TOAST ══════════════ -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <span class="material-icons">check_circle</span>
+  <span id="toast-msg"></span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
